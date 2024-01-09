@@ -1,0 +1,27 @@
+{% extends 'cbvapp/basic_base.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="jumbotron">
+            {% if not form.instance.pk %}
+                <h1>Add new company details here</h1>
+                <form method="POST">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    
+                    <input class="btn btn-primary" type="submit" value="create">
+                </form>
+            {% else %}
+                <h1>update company details here....!!</h1>
+                <form method="POST">
+                    {% csrf_token %}
+                    {{ form.as_p}}
+                    <input type="submit" class="btn btn-warning" value="update">
+
+                </form>
+            {% endif %}
+
+    </div>
+</div>
+
+{% endblock%}

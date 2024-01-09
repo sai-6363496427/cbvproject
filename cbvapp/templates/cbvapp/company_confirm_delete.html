@@ -1,0 +1,16 @@
+{% extends 'cbvapp/basic_base.html' %}
+{% block content %}
+    <div class="container">
+        <div class="jumbotron">
+            <h1>do u want to delete company name...?{{ company.c_name }}...?</h1>
+            <p>
+                <form method="POST">
+                    {% csrf_token %}
+                    <input type="submit" class="btn btn-warning" value="delete">
+                </form>
+                <a class="btn btn-primary" href="{% url 'list' %}">cancel..</a>
+            </p>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'cbvapp/basic_base.html' %}
+{% block content %}
+    <div class="container">
+        <div class="jumbotron">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card card-body">
+                        <h1>{{ company_details.c_name }} company details</h1>
+                        <p>company name:-{{ company_details.c_name }}</p>
+                        <p>company ceo:-{{ company_details.ceo }}</p>
+                        <p>company origin :-{{ company_details.origin }}</p>
+                        <!-- <p><a class="btn btn-warning" href="#">Update</a></p> -->
+                        <hr>
+                        <h3>{{ company_details.c_name }} products </h3>
+                        {% for data in company_details.companies.all %}
+                            <p>{{ data.prd_name }}</p>
+                            
+                        {% endfor %}
+                        <p><a class="btn btn-warning" href="{% url 'update' pk=company_details.pk %}">update</a>
+                            <a class="btn btn-danger" href="{% url 'delete' pk=company_details.pk %}">delete</a></p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
